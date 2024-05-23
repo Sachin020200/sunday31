@@ -1,0 +1,27 @@
+Resources:
+  MyIAMUser:
+    Type: "AWS::IAM::User"
+    Properties:
+      UserName: "deletenow00"
+ 
+  MyIAMUserPolicy:
+    Type: 'AWS::IAM::Policy'
+    Properties:
+      PolicyName: "IAMFullAccess"
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Action:
+              - "s3:listBucket"
+            Resources: "*"
+          - Effect: "Allow"
+            Action:
+              - "s3:ListBucket"
+            Resource: "*"
+            Action:
+              - "s3:GetObject"
+              - "s3:PutObject"
+            Resource: "arn:awss3:::example-bucket/*"
+      Users:
+        - !Ref deletenow00

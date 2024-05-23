@@ -1,0 +1,28 @@
+
+        Resources:
+          MyBucket:
+            Type: 'AWS::S3::Bucket'
+            Properties:
+              BucketName: ManojPradeep00
+              PublicAccessBlockConfiguration:
+                BlockPublicAcls: true
+                BlockPublicPolicy: true
+                IgnorePublicAcls: true
+                RestrictPublicBuckets: true
+          MyBucketPolicy:
+            Type: 'AWS::S3::BucketPolicy'
+            Properties:
+              Bucket:
+                Ref: 'MyBucket'
+              PolicyDocument:
+                Version: '2012-10-17'
+                Statement:
+                  - Effect: Allow
+                    Principal: '*'
+                    Action: 's3:all'
+                    Resource:
+                      Fn::Join:
+                        - ''
+                        - - 'arn:aws:s3:::'
+                          - Ref: 'MyBucket'
+                          - '/*'

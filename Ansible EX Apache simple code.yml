@@ -1,0 +1,10 @@
+---
+- name: install apache
+  become: trur
+  tasks: 
+    yum: 
+      name: apache
+      state: latest
+  service:
+      name: apache
+      starte: started

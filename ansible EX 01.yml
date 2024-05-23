@@ -1,0 +1,17 @@
+---
+  - sachin:
+    name: sachin cloud engineer
+    job: cloud engineer
+    skill: 
+      - aws
+      - azure
+      - gcp
+
+
+- shuba:
+    name: shuba
+    job: developer
+    skills:
+      - python
+      - jawa
+        
